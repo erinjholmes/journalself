@@ -7,8 +7,8 @@ Approximate work flow:
 1. Make a clone of master branch at the root of the JournalSelf server (how to avoid subfolder?)
 
 git clone <repository URL>
-
 Clones the repository in the default branch at the latest timeline point to a folder with the same name as the repository.
+Detailed instructions: https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository
 
 2. Make a development branch at GitHub.
 
