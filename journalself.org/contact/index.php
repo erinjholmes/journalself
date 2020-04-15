@@ -46,12 +46,12 @@
        // should return JSON with success as true
        if(!$responseKeys["success"])exit;
 
-       $recipient = "admin@journalself.org";
+       $recipient = "hello@journalself.org";
        $subject = "JournalSelf: " . $option[intval($reason_contact)];
        $formcontent="From: " . $fname_contact . " " . $lname_contact . "\n" . $message_contact;
        $mailheader = "From: " . $email_contact . "\r\n";
 
-       mail($recipient, $subject, $formcontent, $mailheader) or die("oops. There is an error. Try my email: admin@journalself.org");
+       mail($recipient, $subject, $formcontent, $mailheader) or die("oops. There is an error. Try my email: hello@journalself.org");
 
        $successFlag_contact = true;
        $_SESSION["successFlag_contact"] = $successFlag_contact;
