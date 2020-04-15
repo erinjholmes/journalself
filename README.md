@@ -6,7 +6,7 @@ Approximate work flow:
 
 1. Make a clone of repository at the root of the JournalSelf server (journalself.org subfolder), This will be password protected staging subfolder:
 
-git clone <repository URL>
+-- git clone <repository URL>
 Clones the repository in the deault branch at the latest timeline point to a folder with the same name as the repository.
 Detailed instructions: https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository
 
