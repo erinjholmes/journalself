@@ -40,7 +40,14 @@ Uploads the changes in the local timeline to the server repository. This effecti
 
 Obtains updates from the repository to the current branch if the timeline of the server repository is ahead of the local timeline
 
+<<<<<<< HEAD
+-- git fetch
+Downloads commits, files, and refs from a remote repository into your local repo. Fetching is what you do when you want to see what everybody else has been working on.
+
+-- git merge <branch name>
+=======
 -- git merge branch_name
+>>>>>>> master
 
 When modifications are committed and pushed and tested at the staging folder
 
