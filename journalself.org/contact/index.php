@@ -24,7 +24,7 @@
     $_SESSION["message_contact"] = $message_contact;
     $sendyourself_contact = $_POST['sendyourself_contact'];
     $_SESSION["sendyourself_contact"] = $sendyourself_contact;
-    
+
     //reCAPTCHA section
     if(isset($_POST['g-recaptcha-response']))
     {
@@ -37,7 +37,7 @@
     else
     {
        $_SESSION["recaptcha_highlight"] = false;
-       
+
        $secretKey = "6LcDUNEUAAAAAGZqMmpNXrl7UvPBacFXIPlGDkJP";
        // post request to server
        $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
@@ -50,9 +50,9 @@
        $subject = "JournalSelf: " . $option[intval($reason_contact)];
        $formcontent="From: " . $fname_contact . " " . $lname_contact . "\n" . $message_contact;
        $mailheader = "From: " . $email_contact . "\r\n";
-       
+
        mail($recipient, $subject, $formcontent, $mailheader) or die("oops. There is an error. Try my email: admin@journalself.org");
-       
+
        $successFlag_contact = true;
        $_SESSION["successFlag_contact"] = $successFlag_contact;
     }
@@ -67,7 +67,7 @@
   $sendyourself_contact = $_SESSION["sendyourself_contact"];
   $recaptcha_highlight = $_SESSION["recaptcha_highlight"];
   $successFlag_contact = $_SESSION["successFlag_contact"];
-?> 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -196,7 +196,7 @@
             if($recaptcha_highlight) echo '<div><font color="red">Please check the reCaptcha form:</font></div>';
           ?>
           <div class="g-recaptcha" data-sitekey="6LcDUNEUAAAAADBAPtIDF64cx6UXrowryE7nR8Sr"></div><br>
-          
+
           <input class="button-primary" type="submit" name="Contact" value="Submit">
         </div>
       </div>
@@ -222,8 +222,8 @@
         <ul class="icons">
           <li><a class="icon brands fa-twitter" href="https://twitter.com/journalselforg"></a></li>
           <li><a class="icon brands fa-facebook" href="https://facebook.com/journalselforg"></a></li>
-          <li><a class="icon brands fa-linkedin" href="https://linkedin.com/journalselforg"></a></li>
-          <li><a class="icon brands fa-github" href="https://github.com/journalselforg"></a></li>
+          <li><a class="icon brands fa-linkedin" href="https://www.linkedin.com/company/journalselforg"></a></li>
+          <li><a class="icon brands fa-github" href="https://github.com/JournalSelf"></a></li>
           <li><a class="icon brands fa-telegram-plane" href="https://t.me/joinchat/Kgb4KBtIC41lLch-sCEDRw"></a></li>
       </ul>
   </div>

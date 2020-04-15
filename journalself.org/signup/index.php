@@ -19,7 +19,7 @@
     $_SESSION["organization_signup"] = $organization_signup;
     $scopusid_signup = $_POST['scopusid_signup'];
     $_SESSION["scopusid_signup"] = $scopusid_signup;
-    
+
     //reCAPTCHA section
     if(isset($_POST['g-recaptcha-response']))
     {
@@ -32,7 +32,7 @@
     else
     {
        $_SESSION["recaptcha_highlight"] = false;
-       
+
        $secretKey = "6LcDUNEUAAAAAGZqMmpNXrl7UvPBacFXIPlGDkJP";
        // post request to server
        $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
@@ -40,7 +40,7 @@
        $responseKeys = json_decode($response,true);
        // should return JSON with success as true
        if(!$responseKeys["success"])exit;
-       
+
        $time_signup = gmdate("Y-m-d H:i:s");
        $sql = 'CREATE TABLE IF NOT EXISTS betatesters (n INT AUTO_INCREMENT PRIMARY KEY, timesignup DATETIME, email VARCHAR(250), fname VARCHAR(50), lname VARCHAR(50), title VARCHAR(250), organization VARCHAR(250), scopusid VARCHAR(50))';
        $result = mysqli_query($DBcon, $sql);
@@ -61,7 +61,7 @@
   $scopusid_signup = $_SESSION["scopusid_signup"];
   $recaptcha_highlight = $_SESSION["recaptcha_highlight"];
   $successFlag_signup = $_SESSION["successFlag_signup"];
-?> 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -133,7 +133,7 @@
       <?php
          if($connection_error_flag)
          {
-            echo "<b>Sorry! Our database connection is too busy at the moment. Please try again later. You can also let us know about this probelm at our <a href='../contact/index.php'>Contact page</a>.</b>";             
+            echo "<b>Sorry! Our database connection is too busy at the moment. Please try again later. You can also let us know about this probelm at our <a href='../contact/index.php'>Contact page</a>.</b>";
          }
          if($successFlag_signup)
          {
@@ -165,7 +165,7 @@
                   if($recaptcha_highlight) echo '<div><font color="red">Please check the reCaptcha form:</font></div>';
               ?>
               <div class="g-recaptcha" data-sitekey="6LcDUNEUAAAAADBAPtIDF64cx6UXrowryE7nR8Sr"></div><br>
-            
+
             <input class="button-primary" type="submit" name="Signup" value="Submit">
           </form>
         </div>
@@ -184,8 +184,8 @@
         <ul class="icons">
           <li><a class="icon brands fa-twitter" href="https://twitter.com/journalselforg"></a></li>
           <li><a class="icon brands fa-facebook" href="https://facebook.com/journalselforg"></a></li>
-          <li><a class="icon brands fa-linkedin" href="https://linkedin.com/journalselforg"></a></li>
-          <li><a class="icon brands fa-github" href="https://github.com/journalselforg"></a></li>
+          <li><a class="icon brands fa-linkedin" href="https://www.linkedin.com/company/journalselforg"></a></li>
+          <li><a class="icon brands fa-github" href="https://github.com/JournalSelf"></a></li>
           <li><a class="icon brands fa-telegram-plane" href="https://t.me/joinchat/Kgb4KBtIC41lLch-sCEDRw"></a></li>
       </ul>
   </div>
