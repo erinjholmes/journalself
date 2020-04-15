@@ -224,7 +224,7 @@
           <li><a class="icon brands fa-facebook" href="https://facebook.com/journalselforg"></a></li>
           <li><a class="icon brands fa-linkedin" href="https://linkedin.com/journalselforg"></a></li>
           <li><a class="icon brands fa-github" href="https://github.com/journalselforg"></a></li>
-          <li><a class="icon brands fa-telegram-plane" href="https://telegram.com/journalselforg"></a></li>
+          <li><a class="icon brands fa-telegram-plane" href="https://t.me/joinchat/Kgb4KBtIC41lLch-sCEDRw"></a></li>
       </ul>
   </div>
 </div>
@@ -249,7 +249,7 @@
 
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity=""
+  integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
   crossorigin="anonymous">
 </script>
 
