@@ -46,4 +46,4 @@ When modifications are committed and pushed and tested at the staging folder
 
 Merges the branch with name <branch name> into the current branch. Therefore before this command you should use git checkout to change to the target branch.
 
-To make modified site live, copy the staging folder to main folder.
+To make modified site live, copy the staging folder to main folder (rsync -recursive * ../../).
