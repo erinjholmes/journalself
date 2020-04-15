@@ -141,9 +141,9 @@
                 <?php
                    if($successFlag_contact)
                    {
-                      echo "<b>Thank you, " . $fname_contact . ", for sending us an e-mail! ";
+                      echo "<b>Thank you, " . $fname_contact . ", for sending us an e-mail. ";
                       if($sendyourself_contact == "on") echo "We sent you the copy of your message to " . $email_contact . " (please check the spam box). ";
-                      echo "We will answer you as soon as possible.</b>";
+                      echo "We will reply to you as soon as possible.</b>";
                    }
                 ?>
                 <div class="col-12">
