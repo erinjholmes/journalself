@@ -114,12 +114,12 @@
   </header>
 
   <!-- Banner -->
-  <div class="section">
+  <div class="section banner">
     <div class="container">
       <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-8">
-          <h1>Be The First To Try JournalSelf.</h1>
-          <p>Signup for an early invite and we'll notify you before we open protocols to the general public.</p>
+          <h1 class="major-title">Be The First To Try JournalSelf</h1>
+          <p class="major-paragraph">Please signup for an early invite and we'll notify you before we open protocols to the general public.</p>
         </div>
       </div>
     </div>
@@ -127,9 +127,6 @@
 
   <!-- Content -->
 
-<div class="section signup">
-  <div class="container">
-    <div class="row">
       <?php
          if($connection_error_flag)
          {
@@ -140,39 +137,45 @@
             echo "<b>Thank you, " . $fname_signup . ", for signing up! We will send you an invitation via e-mail as soon as we are ready for beta-testing.</b>";
          }
       ?>
-      <div class="card-panel">
-        <div class="col-12">
           <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
-              <label for="EmailInput">Your Email*</label>
-              <input class="full-width" type="email" name="email_signup" id="EmailInput" value="<?php echo $email_signup; ?>" required>
-
+            <div class="section contact">
+              <div class="container">
+                <div class="row">
+            <div class="col-6">
               <label for="FNameInput">First Name*</label>
               <input class="full-width" type="fname" name="fname_signup" id="FNameInput" value="<?php echo $fname_signup; ?>" required>
-
+            </div>
+            <div class="col-6">
               <label for="LNameInput">Last Name*</label>
               <input class="full-width" type="lname" name="lname_signup" id="LNameInput" value="<?php echo $lname_signup; ?>" required>
-
+            </div>
+            <div class="col-6">
+              <label for="EmailInput">Your Email*</label>
+              <input class="full-width" type="email" name="email_signup" id="EmailInput" value="<?php echo $email_signup; ?>" required>
+            </div>
+            <div class="col-6">
               <label for="TitleInput">Title</label>
               <input class="full-width" type="title" name="title_signup" id="TitleInput" value="<?php echo $title_signup; ?>">
-
+            </div>
+            <div class="col-6">
               <label for="OrgInput">School or Organization, Country</label>
               <input class="full-width" type="organization" name="organization_signup" id="OrgInput" value="<?php echo $organization_signup; ?>">
-
+            </div>
+            <div class="col-6">
               <label for="OrgInput">Your <a href=https://www.scopus.com/search/form.uri?display=basic#author>Scopus ID</a> (typically 10-digit number)</label>
               <input class="full-width" type="text" name="scopusid_signup" id="OrgInput" value="<?php echo $scopusid_signup; ?>">
-
+            </div>
               <?php
                   if($recaptcha_highlight) echo '<div><font color="red">Please check the reCaptcha form:</font></div>';
               ?>
+              <div class="col-12">
               <div class="g-recaptcha" data-sitekey="6LcDUNEUAAAAADBAPtIDF64cx6UXrowryE7nR8Sr"></div><br>
-
             <input class="button-primary" type="submit" name="Signup" value="Submit">
-          </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+</form>
 
 <?php
 ?>
