@@ -126,7 +126,10 @@
   </div>
 
   <!-- Content -->
-
+  <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
+  <div class="section contact">
+    <div class="container">
+      <div class="row">
       <?php
          if($connection_error_flag)
          {
@@ -137,10 +140,6 @@
             echo "<b>Thank you, " . $fname_signup . ", for signing up! We will send you an invitation via e-mail as soon as we are ready for beta-testing.</b>";
          }
       ?>
-          <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
-            <div class="section contact">
-              <div class="container">
-                <div class="row">
             <div class="col-6">
               <label for="FNameInput">First Name*</label>
               <input class="full-width" type="fname" name="fname_signup" id="FNameInput" value="<?php echo $fname_signup; ?>" required>
@@ -162,7 +161,7 @@
               <input class="full-width" type="organization" name="organization_signup" id="OrgInput" value="<?php echo $organization_signup; ?>">
             </div>
             <div class="col-6">
-              <label for="OrgInput">Your <a href=https://www.scopus.com/search/form.uri?display=basic#author>Scopus ID</a> (typically 10-digit number)</label>
+              <label for="OrgInput">Your <a href="https://www.scopus.com/freelookup/form/author.uri">Scopus ID</a> (typically 10-digit number)</label>
               <input class="full-width" type="text" name="scopusid_signup" id="OrgInput" value="<?php echo $scopusid_signup; ?>">
             </div>
               <?php
