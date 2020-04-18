@@ -1142,31 +1142,6 @@ html:not(.canvas-visible) .off-canvas {
   text-align: center;
 }
 
-
-/* Signup Page
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-.signup {
-  display: flex;
-  border-top: 1px solid #E1E1E1;
-}
-
-.darkmode {
-background-color: #1B2E50;
-color: #BBC0C4;
-
-}
-
-.card-panel {
-  box-shadow: rgba(0, 0, 0, 0.1) 0 5px 40px, rgba(0, 0, 0, 0.1) 0 5px 10px;
-  border-bottom: 10px solid transparent;
-  transition: box-shadow 0.25s;
-  padding: 20px;
-  margin: 3em;
-  border-radius: 2px;
-  background-color: #fff;
-}
-
 /* Footer
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 

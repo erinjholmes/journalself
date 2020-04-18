@@ -123,15 +123,13 @@
     <div class="container">
       <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-8">
-          <h1 class="major-title">Contact us at JournalSelf.</h1>
+          <h1 class="major-title">Contact Us At JournalSelf</h1>
           <p class="major-paragraph">Please reach out for questions, inquiries, ideas, and general help using the form below.</p>
           <a class="button button-primary" href="../signup/index.php">or...Signup for beta</a>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="js-width-wide">
 
     <!-- Forms -->
     <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
@@ -151,19 +149,19 @@
                 <p>If you need further assistance, please reach us directly via email by filling out the form below.</p>
                 </div>
             <div class="col-6">
-              <label for="exampleFirstNameInput">Your first name*</label>
+              <label for="exampleFirstNameInput">First Name*</label>
               <input class="full-width" type="fname" name="fname_contact" id="exampleFirstNameInput" value="<?php echo $fname_contact; ?>" required>
             </div>
             <div class="col-6">
-              <label for="exampleLastNameInput">Your last name*</label>
+              <label for="exampleLastNameInput">Last Name*</label>
               <input class="full-width" type="lname" name="lname_contact" id="exampleLastNameInput" value="<?php echo $lname_contact; ?>" required>
             </div>
             <div class="col-6">
-              <label for="exampleEmailInput">Your email*</label>
+              <label for="exampleEmailInput">Your Email*</label>
               <input class="full-width" type="email" name="email_contact" id="exampleEmailInput" value="<?php echo $email_contact; ?>" required>
             </div>
             <div class="col-6">
-              <label for="exampleRecipientInput">Reason for contacting</label>
+              <label for="exampleRecipientInput">Reason For Contacting</label>
               <select class="full-width" name="reason_contact" id="exampleRecipientInput" value="<?php echo $reason_contact; ?>">
                 <option value="0" <?php echo $selected_contact[0]; ?>><?php echo $option[0]; ?></option>
                 <option value="1" <?php echo $selected_contact[1]; ?>><?php echo $option[1]; ?></option>
@@ -201,10 +199,8 @@
         </div>
       </div>
     </div>
-  </div>
-    </form>
+</form>
 
-</div>
     <!-- CTA -->
     <div class="section cta">
       <div class="container">
