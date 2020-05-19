@@ -23,7 +23,7 @@
     //reCAPTCHA section
     if(isset($_POST['g-recaptcha-response']))
     {
-      $captcha=$_POST['g-recaptcha-response'];
+      $captcha = $_POST['g-recaptcha-response'];
     }
     if(!$captcha)
     {
@@ -34,6 +34,7 @@
        $_SESSION["recaptcha_highlight"] = false;
 
        $secretKey = "6LcDUNEUAAAAAGZqMmpNXrl7UvPBacFXIPlGDkJP";
+       
        // post request to server
        $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
        $response = file_get_contents($url);
@@ -81,7 +82,7 @@
   <link rel="stylesheet" href="../assets/css/main.css">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
 
   <!-- Recaptcha -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -96,17 +97,18 @@
         <div class="navbar-left">
           <div class="burger hidden-lg hidden-xl"><i class="fas fa-bars"></i></div>
           <a class="logo" href="../index.html">
-        <span class="logo-text">Journal<span style="font-weight: 300;">Self</span></span></a>
-         <div class="sep hidden-xs hidden-sm"></div>
-          <nav class="main-menu hidden-xs hidden-sm hidden-md">
-              <ul class="nav-list">
-          <li class="menu-item"><a class="menu-item-link" href="../index.html">Home</a></li>
-          <li class="menu-item"><a class="menu-item-link" href="../about/index.html">About</a></li>
-          <li class="menu-item"><a class="menu-item-link menu-item-current" href="../signup/index.php">Signup</a></li>
-          <li class="menu-item"><a class="menu-item-link" href="../contact/index.php">Contact</a></li>
-        </ul>
-          </nav>
-              </div>
+            <span class="logo-text">Journal<span style="font-weight: 300;">Self</span></span>
+          </a>
+          <div class="sep hidden-xs hidden-sm"></div>
+            <nav class="main-menu hidden-xs hidden-sm hidden-md">
+            <ul class="nav-list">
+              <li class="menu-item"><a class="menu-item-link" href="../index.html">Home</a></li>
+              <li class="menu-item"><a class="menu-item-link" href="../about/index.html">About</a></li>
+              <li class="menu-item"><a class="menu-item-link menu-item-current" href="../signup/index.php">Signup</a></li>
+              <li class="menu-item"><a class="menu-item-link" href="../contact/index.php">Contact</a></li>
+            </ul>
+            </nav>
+          </div>
         <div class="navbar-right">
         </div>
       </div>
@@ -130,56 +132,76 @@
   <div class="section contact">
     <div class="container">
       <div class="row">
-      <?php
-         if($connection_error_flag)
-         {
-            echo "<b>Sorry! Our database connection is too busy at the moment. Please try again later. You can also let us know about this probelm at our <a href='../contact/index.php'>Contact page</a>.</b>";
-         }
-         if($successFlag_signup)
-         {
-            echo "<b>Thank you, " . $fname_signup . ", for signing up! We will send you an invitation via e-mail as soon as we are ready for beta-testing.</b>";
-         }
-      ?>
-            <div class="col-6">
-              <label for="FNameInput">First Name*</label>
-              <input class="full-width" type="fname" name="fname_signup" id="FNameInput" value="<?php echo $fname_signup; ?>" required>
-            </div>
-            <div class="col-6">
-              <label for="LNameInput">Last Name*</label>
-              <input class="full-width" type="lname" name="lname_signup" id="LNameInput" value="<?php echo $lname_signup; ?>" required>
-            </div>
-            <div class="col-6">
-              <label for="EmailInput">Your Email*</label>
-              <input class="full-width" type="email" name="email_signup" id="EmailInput" value="<?php echo $email_signup; ?>" required>
-            </div>
-            <div class="col-6">
-              <label for="TitleInput">Title</label>
-              <input class="full-width" type="title" name="title_signup" id="TitleInput" value="<?php echo $title_signup; ?>">
-            </div>
-            <div class="col-6">
-              <label for="OrgInput">School or Organization, Country</label>
-              <input class="full-width" type="organization" name="organization_signup" id="OrgInput" value="<?php echo $organization_signup; ?>">
-            </div>
-            <div class="col-6">
-              <label for="OrgInput">Your <a href="https://www.scopus.com/freelookup/form/author.uri">Scopus ID</a> (typically 10-digit number)</label>
-              <input class="full-width" type="text" name="scopusid_signup" id="OrgInput" value="<?php echo $scopusid_signup; ?>">
-            </div>
-              <?php
-                  if($recaptcha_highlight) echo '<div><font color="red">Please check the reCaptcha form:</font></div>';
-              ?>
-              <div class="col-12">
-              <div class="g-recaptcha" data-sitekey="6LcDUNEUAAAAADBAPtIDF64cx6UXrowryE7nR8Sr"></div><br>
-            <input class="button-primary" type="submit" name="Signup" value="Submit">
-          </div>
+        <?php
+          if($connection_error_flag)
+          {
+             echo "<b>Sorry! Our database connection is too busy at the moment. Please try again later. You can also let us know about this probelm at our <a href='../contact/index.php'>Contact page</a>.</b>";
+          }
+          if($successFlag_signup)
+          {
+             $sql = 'SELECT * FROM betatesters WHERE email = "' . $email_signup . '"';
+             $result = mysqli_query($DBcon, $sql);
+             if(mysqli_num_rows($result) > 0)
+             {
+                echo "<b>We already have this email in our database. Probably you have already signed up.</b>";
+             }
+             else
+             {
+                $recipient = $email_signup;
+                $subject = "JournalSelf: your signing up for beta";
+                $message = "Dear " . $fname_signup . ",\n\n";
+                $message = $message . "Thank you for signing up for beta testing of JournalSelf! We will send you an invitation via e-mail as soon as we are ready for beta-testing.\n\n";
+                $message = $message . "Sincerely yours,\n\nJournalSelf team\n https://journalself.org";
+                $mailheader = "From: hello@journalself.org\r\n";
+  
+                mail($recipient, $subject, $message, $mailheader) or die("Oops. There is an error. Try our email: hello@journalself.org");
+            
+                echo "<b>Thank you, " . $fname_signup . ", for signing up! We have just sent you a confirmation e-mail and will send you an invitation via e-mail as soon as we are ready for beta-testing.</b>";
+             }
+          }
+          else
+          {
+        ?>
+        <div class="col-6">
+          <label for="FNameInput">First Name*</label>
+          <input class="full-width" type="fname" name="fname_signup" id="FNameInput" value="<?php echo $fname_signup; ?>" required>
         </div>
+        <div class="col-6">
+          <label for="LNameInput">Last Name*</label>
+          <input class="full-width" type="lname" name="lname_signup" id="LNameInput" value="<?php echo $lname_signup; ?>" required>
+        </div>
+        <div class="col-6">
+          <label for="EmailInput">Your Email*</label>
+          <input class="full-width" type="email" name="email_signup" id="EmailInput" value="<?php echo $email_signup; ?>" required>
+        </div>
+        <div class="col-6">
+          <label for="TitleInput">Title</label>
+          <input class="full-width" type="title" name="title_signup" id="TitleInput" value="<?php echo $title_signup; ?>">
+        </div>
+        <div class="col-6">
+          <label for="OrgInput">School or Organization, Country</label>
+          <input class="full-width" type="organization" name="organization_signup" id="OrgInput" value="<?php echo $organization_signup; ?>">
+        </div>
+        <div class="col-6">
+          <label for="OrgInput">Your <a href="https://www.scopus.com/freelookup/form/author.uri">Scopus ID</a> (typically 10-digit number)</label>
+          <input class="full-width" type="text" name="scopusid_signup" id="OrgInput" value="<?php echo $scopusid_signup; ?>">
+        </div>
+        <?php
+          if($recaptcha_highlight) echo '<div><font color="red">Please check the reCaptcha form:</font></div>';
+        ?>
+        <div class="col-12">
+          <div class="g-recaptcha" data-sitekey="6LcDUNEUAAAAADBAPtIDF64cx6UXrowryE7nR8Sr"></div><br>
+          <input class="button-primary" type="submit" name="Signup" value="Submit">
+        </div>
+        <?php 
+          }
+        ?>
       </div>
     </div>
-</form>
+  </div>
+  </form>
 
-<?php
-?>
-
-<!-- Footer -->
+  <!-- Footer -->
   <div class="footer">
       <a class="logo" href="../index.html"><span class="logo-text">Journal<span style="font-weight: 300;">Self</span></span></a>
       <div class="footer-social">
