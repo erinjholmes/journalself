@@ -34,7 +34,7 @@
        $_SESSION["recaptcha_highlight"] = false;
 
        $secretKey = "6LcDUNEUAAAAAGZqMmpNXrl7UvPBacFXIPlGDkJP";
-       
+
        // post request to server
        $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
        $response = file_get_contents($url);
@@ -143,19 +143,19 @@
              $result = mysqli_query($DBcon, $sql);
              if(mysqli_num_rows($result) > 0)
              {
-                echo "<b>We already have this email in our database. Probably you have already signed up.</b>";
+                echo "<b>We already have this email in our database. Thank you for signing up.</b>";
              }
              else
              {
                 $recipient = $email_signup;
                 $subject = "JournalSelf: your signing up for beta";
                 $message = "Dear " . $fname_signup . ",\n\n";
-                $message = $message . "Thank you for signing up for beta testing of JournalSelf! We will send you an invitation via e-mail as soon as we are ready for beta-testing.\n\n";
+                $message = $message . "Thank you for signing up for beta testing of JournalSelf. We will send you an invitation via e-mail as soon as we are ready for beta-testing.\n\n";
                 $message = $message . "Sincerely yours,\n\nJournalSelf team\n https://journalself.org";
                 $mailheader = "From: hello@journalself.org\r\n";
-  
+
                 mail($recipient, $subject, $message, $mailheader) or die("Oops. There is an error. Try our email: hello@journalself.org");
-            
+
                 echo "<b>Thank you, " . $fname_signup . ", for signing up! We have just sent you a confirmation e-mail and will send you an invitation via e-mail as soon as we are ready for beta-testing.</b>";
              }
           }
@@ -193,7 +193,7 @@
           <div class="g-recaptcha" data-sitekey="6LcDUNEUAAAAADBAPtIDF64cx6UXrowryE7nR8Sr"></div><br>
           <input class="button-primary" type="submit" name="Signup" value="Submit">
         </div>
-        <?php 
+        <?php
           }
         ?>
       </div>
