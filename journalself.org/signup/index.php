@@ -135,7 +135,7 @@
         <?php
           if($connection_error_flag)
           {
-             echo "<b>Sorry! Our database connection is too busy at the moment. Please try again later. You can also let us know about this probelm at our <a href='../contact/index.php'>Contact page</a>.</b>";
+             echo "<b>Sorry. Our database connection is too busy at the moment. Please try again later. You can also let us know about this probelm at our <a href='../contact/index.php'>Contact page</a>.</b>";
           }
           if($successFlag_signup)
           {
@@ -156,7 +156,7 @@
 
                 mail($recipient, $subject, $message, $mailheader) or die("Oops. There is an error. Try our email: hello@journalself.org");
 
-                echo "<b>Thank you, " . $fname_signup . ", for signing up! We have just sent you a confirmation e-mail and will send you an invitation via e-mail as soon as we are ready for beta-testing.</b>";
+                echo "<b>Thank you, " . $fname_signup . ", for signing up. We have just sent you a confirmation e-mail and will send you an invitation via e-mail as soon as we are ready for beta-testing.</b>";
              }
           }
           else
