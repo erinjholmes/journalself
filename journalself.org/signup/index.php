@@ -143,7 +143,7 @@
              $result = mysqli_query($DBcon, $sql);
              if(mysqli_num_rows($result) > 0)
              {
-                echo "<b>We already have this email in our database. Thank you for signing up.</b>";
+                echo "<b>We already have your email in our database. Thank you for signing up.</b>";
              }
              else
              {
