@@ -1,8 +1,8 @@
 <?php
-$DBhostname = '198.57.150.36';
-$DBusername = 'mikityuk_01';
-$DBpassword = 'karabas00BARABAS';
-$DBname = 'mikityuk_db';
+$DBhostname = 'hostname';
+$DBusername = 'username';
+$DBpassword = 'password';
+$DBname = 'dbname';
 
 $DBcon = new mysqli($DBhostname, $DBusername, $DBpassword, $DBname);
 if($DBcon->connect_error)
