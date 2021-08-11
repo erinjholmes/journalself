@@ -33,7 +33,7 @@
     {
        $_SESSION["recaptcha_highlight"] = false;
 
-       $secretKey = "6LcDUNEUAAAAAGZqMmpNXrl7UvPBacFXIPlGDkJP";
+       $secretKey = "secretkey";
 
        // post request to server
        $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
@@ -190,7 +190,7 @@
           if($recaptcha_highlight) echo '<div><font color="red">Please check the reCaptcha form:</font></div>';
         ?>
         <div class="col-12">
-          <div class="g-recaptcha" data-sitekey="6LcDUNEUAAAAADBAPtIDF64cx6UXrowryE7nR8Sr"></div><br>
+          <div class="g-recaptcha" data-sitekey="datasitekey"></div><br>
           <input class="button-primary" type="submit" name="Signup" value="Submit">
         </div>
         <?php
